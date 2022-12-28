@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Roboto:wght@400;700&display=swap');
+
+:root{
+    --hp-progress: #FF766D;
+    --armor-progress: #257CFF;
+    --water-progress:#5D9EFF;
+    --food-progress:#78C14B;
+    --status-container-background: rgba(255, 255, 255, 0.16);
+    --notify-background: rgba(255,255,255,0.22);
+    --notify-progress:#1BCFC4;
+    --dialog-no-background:rgba(255, 118, 109, 1);
+    --dialog-yes-background:rgba(121, 255, 88, 1);
+    --map-background:rgba(255, 255, 255, 0.17);
+    --key-background: rgba(27, 207, 196, 0.5);
+    --key-border-color:rgba(27, 207, 196, 1);
+    --rpm-background:rgba(255, 255, 255, 0.4);
+    --rpm-progress-color:#1BCFC4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.6vmin;
+    overflow: hidden;
+    color:white;
+}
+
+#player-info-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2vmin;
+    position: absolute;
+    right: 0;
+    padding:1.5vmin;
+}
+
+#player-info-container .mic-container, .id-and-players-container {
+    display: flex;
+    gap: 2.5vmin;
+}
+
+#player-info-container .id-and-players-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vmin;
+}
+
+#player-info-container .id, .players{
+    gap:1.5vmin;
+}
+
+#player-info-container .mic-container, .players {
+    display: flex;
+    align-items: center;
+}
+
+#player-info-container .money-container , .bank-container{
+    display: flex;
+    gap: 1.8vmin;
+    font-size: 2.3vmin;
+}
+
+#player-info-container .weapon-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5vmin;
+    position: relative;
+    right: -6vmin;
+    top: 6vmin;
+}
+
+.weapon {
+    display: flex;
+}
+
+#player-info-container .labels{
+    position: absolute;
+    left: -69px;
+    display: flex;
+    flex-direction: column;
+}
+
+#player-info-container .labels span:first-child{
+    color:aqua
+}
+
+#player-info-container .labels span:nth-child(2){
+    font-size: 1.2vmin;
+}
+
+#keyinfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
+    position: absolute;
+    right: 0.5vmin;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#keyinfo .key {
+    display: flex;
+    gap: 1vmin;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#keyinfo .key .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--key-background);
+    border: 0.1vmin solid
+    --key-border-color;
+    border-radius: 0.3vmin;
+    width: 4vmin;
+    height: 4vmin;
+}
+
+#chat-container{
+    width: 60vmin;
+    height: 4vmin;
+    border: 0.1vmin solid #1BCFC4;
+    border-radius: 0.2vmin;
+    background: rgba(27, 207, 196, 0.5);
+    position: absolute;
+    top: 14vmin;
+}
+
+#dialog{
+    display: flex;
+    align-items: center;
+    gap: 1vmin;
+    position: absolute;
+    bottom: 10%;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+#dialog .dialog-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgba(255, 255, 255, 0.2);
+    width: 25vmin;
+    height: 10vmin;
+    border-radius: 0.3vmin;
+}
+
+
+#dialog .buttons{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vmin;
+}
+
+#dialog .buttons .cube{
+    width: 4.5vmin;
+    height: 4.5vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 0.3vmin;
+}
+
+#dialog .yes{
+    background: var(--dialog-yes-background);
+}
+
+#dialog .no{
+    background: var(--dialog-no-background);
+}
+
+
+#map{
+    width:40vmin;
+    height: 25vmin;
+    background:var(--map-background);
+    border-radius: 0.8vmin;
+    position: absolute;
+    bottom: 0;
+}
+
+
+#status-and-time{
+    display: flex;
+    flex-direction: column;
+    gap: 1vmin;
+    position: absolute;
+    bottom: 0;
+    left: 42vmin;
+}
+
+#status-and-time #job-label{
+    color:rgba(27, 207, 196, 1);
+}
+
+#status-and-time div:nth-child(2),#year-month-day{
+    color: rgba(239, 239, 239, 0.6);
+}
+
+
+#status-and-time .statuses .circle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--status-container-background);
+    border-radius: 50%;
+    width: 4vmin;
+    height: 4vmin;
+}
+
+#status-and-time .statuses{
+    display: flex;
+    gap: 1vmin;
+}
+
+
+#notify .progress-container{
+    width: 30vmin;
+    height: 0.8vmin;
+    background: var(--notify-background);
+    border-radius: 0.5vmin;
+    position: relative;
+    overflow: hidden;
+}
+
+#notify .progress-container .progressbar{
+    position: absolute;
+    border-radius: 0.5vmin;
+    background-color: var(--notify-progress);
+    width: 20%;
+    height: 100%;
+    transition: 0.3s width;
+}
+
+#notify-2{
+    margin: 1rem 1em 1rem 1rem;
+    margin-bottom: 0px;
+}
+
+#notify-2 .progress-container-2{
+    width: 30vmin;
+    height: 0.8vmin;
+    background: var(--notify-background);
+    border-radius: 0.5vmin;
+    position: relative;
+    overflow: hidden;
+}
+
+#notify-2 .progress-container-2 .progressbar-2{
+    position: absolute;
+    border-radius: 0.5vmin;
+    background-color: var(--notify-progress);
+    width: 20%;
+    height: 100%;
+    transition: 0.3s width;
+}
+
+.left-bottom{
+    position: absolute;
+    bottom: 38vmin;
+    left: 2vmin;
+}
+
+.top-center{
+    position: absolute;
+    top: 2vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.left-bottom-2{
+    position: absolute;
+    bottom: 30vmin;
+    left: 2vmin;
+}
+
+.top-center-2{
+    position: absolute;
+    top: 10vmin;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.circle-progress-container{
+    position: relative;
+}
+
+.circle-progress-container svg circle{
+    fill: var(--status-container-background);
+}
+
+.icon-svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#water{
+    stroke: var(--water-progress);
+}
+
+#food{
+    stroke: var(--food-progress);
+}
+
+#armor{
+    stroke: var(--armor-progress);
+}
+
+#hp{
+    stroke: var(--hp-progress);
+}
+
+
+.progress-circle-hp {
+    transform: rotate(1deg);
+    stroke-dasharray: 99;
+    stroke-dashoffset: 94;
+}
+
+.progress-circle-vest {
+    transform: rotate(1deg);
+    stroke-dasharray: 99;
+    stroke-dashoffset: 94;
+}
+
+.progress-circle-thirst {
+    display: flex;
+    transform: rotate(1deg);
+    stroke-dasharray: 99;
+    stroke-dashoffset: 94;
+}
+
+.progress-circle-hunger {
+    display: flex;
+    transform: rotate(1deg);
+    stroke-dasharray: 99;
+    stroke-dashoffset: 94;
+}
+
+@keyframes offsettozero {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+/*VEHICLE HUD*/
+
+#vehicle-hud {
+    position: absolute;
+    bottom: 0vmin;
+    right: 3vmin;
+    display: none;
+}
+
+#rpm-container path:first-child{
+    stroke:var(--rpm-background);
+}
+
+#rpm-container path:nth-child(2){
+    stroke: var(--rpm-progress-color);
+    filter: drop-shadow(0px 1vmin 1vmin var(--rpm-progress-color));
+}
+
+
+#vehicle-hud #rpm-container{
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    width: 37vmin !important;
+    height: 37vmin !important;
+}
+
+#vehicle-hud  .vehicle-speed-container {
+    display: flex;
+    gap: 3vmin;
+    margin-left: 5vmin;
+}
+
+#vehicle-hud  .vehicle-speed-container #speed{
+    font-size: 7vmin;
+}
+
+#vehicle-hud  .vehicle-speed-container #kmh-label {
+    transform: rotate(270deg);
+}
+
+#vehicle-hud .vehicle-properties {
+    display: flex;
+    flex-wrap: wrap;
+    width: 8vmin;
+    height: 6vmin;
+    column-gap: 1vmin;
+    justify-content: space-around;
+}
+
+#vehicle-hud .vehicle-properties-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vmin;
+}
+
+#vehicle-hud #fuel-progress{
+    width: 6vmin;
+}
+
+.active-vehicle-icon{
+    fill:#1BCFC4 !important;
+    fill-opacity: 1 !important;
+}
+
+.main-container{
+    position: absolute;
+    top: 40%;
+    /* background: aqua; */
+    width: 100%;
+    height: 19vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: vmin;
+    /* transform: translate(-50%); */
+    flex-direction: column;
+}
